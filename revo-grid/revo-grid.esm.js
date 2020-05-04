@@ -1,0 +1,1 @@
+import{p as r,b as e}from"./p-1a42139e.js";r().then(r=>e([["p-b0fe738c",[[0,"revo-grid",{dimensions:[16],settings:[16],source:[16],columns:[16]}],[0,"revogr-data"],[0,"revogr-header"],[4,"revogr-viewport-scrollable",{scrollX:[64],scrollY:[64]}]]]],r));

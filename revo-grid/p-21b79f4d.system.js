@@ -1,0 +1,1 @@
+System.register(["./p-245a9482.system.js"],(function(){"use strict";var e,r;return{setters:[function(s){e=s.p;r=s.b}],execute:function(){e().then((function(e){return r([["p-e16fa455.system",[[0,"revo-grid",{dimensions:[16],settings:[16],source:[16],columns:[16]}],[0,"revogr-data"],[0,"revogr-header"],[4,"revogr-viewport-scrollable",{scrollX:[64],scrollY:[64]}]]]],e)}))}}}));
