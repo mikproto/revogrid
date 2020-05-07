@@ -1,3 +1,4 @@
+import { DimensionSettingsState, PositionItem, ViewportStateItems, VirtualPositionItem } from "../interfaces";
 /**
 * Update items based on new scroll position
 * If viewport wasn't changed fully simple recombination of positions

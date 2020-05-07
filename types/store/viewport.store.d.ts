@@ -4,6 +4,7 @@
 * Redraw items during scrolling
 */
 import { ObservableMap } from '@stencil/store';
+import { DimensionType, ViewportState, ViewSettingSizeProp } from "../interfaces";
 declare const rowsStore: ObservableMap<ViewportState>;
 declare const colsStore: ObservableMap<ViewportState>;
 declare function setViewport(data: Partial<ViewportState>, dimensionType: DimensionType): void;

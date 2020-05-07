@@ -84,7 +84,8 @@ export class RevoGrid {
                         "location": "global"
                     },
                     "MultiDimensionAction": {
-                        "location": "global"
+                        "location": "import",
+                        "path": "../../interfaces"
                     }
                 }
             },
@@ -104,7 +105,8 @@ export class RevoGrid {
                 "resolved": "{ defaultColumnSize: number; defaultRowSize: number; frameSize: number; dimensions?: { col?: ViewSettingSizeProp; row?: ViewSettingSizeProp; }; }",
                 "references": {
                     "InputSettings": {
-                        "location": "global"
+                        "location": "import",
+                        "path": "../../interfaces"
                     }
                 }
             },
@@ -124,7 +126,8 @@ export class RevoGrid {
                 "resolved": "DataType[]",
                 "references": {
                     "DataType": {
-                        "location": "global"
+                        "location": "import",
+                        "path": "../../interfaces"
                     }
                 }
             },
@@ -144,7 +147,8 @@ export class RevoGrid {
                 "resolved": "ColumnDataSchema[]",
                 "references": {
                     "ColumnData": {
-                        "location": "global"
+                        "location": "import",
+                        "path": "../../interfaces"
                     }
                 }
             },

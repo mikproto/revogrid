@@ -1,3 +1,4 @@
+import { DimensionSettingsState, ViewSettingSizeProp } from "../interfaces";
 /**
 * Pre-calculation dimension sizes and sizes for each cell
 */

@@ -1,3 +1,4 @@
+import { ColumnData, DataType, InputSettings, MultiDimensionAction } from "../../interfaces";
 export declare class RevoGrid {
     private resizeObserver;
     private viewport;

@@ -3,6 +3,7 @@
 * Dimension information and sizes
 */
 import { ObservableMap } from '@stencil/store';
+import { DimensionSettingsState, DimensionType, ViewSettingSizeProp } from "../interfaces";
 declare const rowsStore: ObservableMap<DimensionSettingsState>;
 declare const colsStore: ObservableMap<DimensionSettingsState>;
 declare function getCurrentState(type: DimensionType): DimensionSettingsState;

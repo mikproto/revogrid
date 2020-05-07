@@ -1,5 +1,6 @@
 import { ObservableMap } from '@stencil/store';
 import { VNode } from '../stencil-public-runtime';
+import { DataSourceState } from "../interfaces";
 export default class DataProvider {
     private store;
     private dataProvider?;
