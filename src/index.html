@@ -65,11 +65,9 @@
       </div>
     </div>
 
-    <script type="module">
-        import {generateFakeDataObject} from "/utilsExternal/generate-data.js";
-
-        const data = generateFakeDataObject(1000, 100);
-        const grid = document.querySelector('revo-grid');
+    <script>
+        var data = generateFakeDataObject(1000, 100);
+        var grid = document.querySelector('revo-grid');
 
         grid.columns = data.headers;
         grid.source = data.rows;
@@ -81,18 +79,6 @@
         grid.range = true;
         grid.resize = true;
         grid.rowClass = 'selected';
-        grid.addEventListener('beforeEdit', (e) => {
-          console.log('after edit', e);
-        });
-
-        grid.addEventListener('beforeRangeEdit', (e) => {
-          console.log('before edit', e);
-        });
-
-        
-        grid.addEventListener('rowDragStart', (e) => {
-          console.log(e.detail);
-        });
 
         window.setEdit = function(x, y) {
           grid.setCellEdit(1, 30);
@@ -101,8 +87,70 @@
           grid.scrollToColumnProp(x || 30);
         };
         window.setGrid = function setGrid() {
-          grid.source = [...data.rows];
+          grid.source = data.rows.splice();
         }
+
+        function generateFakeDataObject(rowsNumber, colsNumber) {
+          var result = [];
+          var columns = {};
+          var all = colsNumber * rowsNumber;
+          for (var j = 0; j < all; j++) {
+              var col = j%colsNumber;
+              var row = j/colsNumber|0;
+              if (!result[row]) {
+                  result[row] = {};
+              }
+              result[row][col] = row + ':' + col;
+              if (!columns[col]) {
+                  columns[col] = {
+                      name: generateHeader(col),
+                      prop: col,
+                      pin: j === 0 ? 'colPinStart' : j === 20 ? 'colPinEnd' : undefined,
+                      sortable: true,
+                      columnProperties: function(props) {
+                          return {
+                              style: {
+                                  backgroundColor: j === 0 ? 'red' : ''
+                              }
+                          };
+                      }
+                  }
+              }
+          }
+          var pinnedTopRows = result[10] && [result[10]] || [];
+          var pinnedBottomRows = result[1] && [result[1]] || [];
+          var headers = Object.keys(columns).map(function(k) { return columns[k] });
+
+          var grouped = headers.splice(1, 4);
+          var grouped2 = grouped.splice(0, 2);
+          grouped.push({
+              name: 'Grouped2',
+              children: grouped2
+          });
+          headers.splice(6, 0, {
+              name: 'Grouped',
+              children: grouped
+          });
+          return {
+              rows: result,
+              pinnedTopRows: pinnedTopRows,
+              headers: headers
+          };
+      }
+
+      function generateHeader(index) {
+          var asciiFirstLetter = 65;
+          var lettersCount = 26;
+          var div = index + 1;
+          var label = '';
+          var pos;
+          while (div > 0) {
+              pos = (div - 1) % lettersCount;
+              label = String.fromCharCode(asciiFirstLetter + pos) + label;
+              div = parseInt(((div - pos) / lettersCount).toString(), 10);
+          }
+          return label.toLowerCase();
+      }
     </script>
 </body>
 </html>
